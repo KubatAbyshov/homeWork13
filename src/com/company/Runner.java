@@ -2,83 +2,47 @@ package com.company;
 
 public class Runner extends Thread {
 
-    Thread thread1 = new Thread("Runner1");
-    Thread thread2 = new Thread("Runner2");
-    Thread thread3 = new Thread("Runner3");
-    Thread thread4 = new Thread("Runner4");
-    Thread thread5 = new Thread("Runner5");
+
+    public Runner(String name) {
+        this.setName(name);
+    }
 
     public void run() {
 
-
         try {
 
-            thread1.start();
-            thread1.join();
-            System.out.println(thread1.getName() + " берет палочку");
-            System.out.println(thread1.getName() + " бежит к " + thread2.getName());
-            Thread.sleep(5000);
+            for (int i = 2; i < 6; i++) {
 
-            thread2.start();
-            thread2.join();
-            System.out.println(thread2.getName() + " берет палочку");
-            System.out.println(thread2.getName() + " бежит к " + thread3.getName());
-            Thread.sleep(5000);
+                System.out.println(getName() + (--i) + " берет палочку ");
+                System.out.println(getName() + i + " бежит к " + getName() + (++i));
 
-            thread3.start();
-            thread3.join();
-            System.out.println(thread3.getName() + " берет палочку");
-            System.out.println(thread3.getName() + " бежит к " + thread4.getName());
-            Thread.sleep(5000);
+                if (i == 5) {
+                    System.out.println(getName() + i + " бежит к финалу");
+                }
+                sleep(5000);
 
-            thread4.start();
-            thread4.join();
-            System.out.println(thread4.getName() + " берет палочку");
-            System.out.println(thread4.getName() + " бежит к " + thread5.getName());
-            Thread.sleep(5000);
+            }
+            for (int j = 4; j > 0; j--) {
 
-            thread5.start();
-            thread5.join();
-            System.out.println(thread5.getName() + " берет палочку");
-            System.out.println(thread5.getName() + " бежит к финишу");
-            Thread.sleep(5000);
+                System.out.println(getName() + (++j) + " берет палочку ");
+                System.out.println(getName() + j + " бежит к " + getName() + (--j));
 
-            thread5.run();
-            thread5.join();
-            System.out.println(thread5.getName() + " бежит к " + thread4.getName());
-            Thread.sleep(5000);
+                if (j == 1) {
+                    System.out.println(getName() + j + " берет палочку ");
+                }
+                sleep(5000);
 
-            thread4.run();
-            thread4.join();
-            System.out.println(thread4.getName() + " берет палочку");
-            System.out.println(thread4.getName() + " бежит к " + thread3.getName());
-            Thread.sleep(5000);
-
-            thread3.run();
-            thread3.join();
-            System.out.println(thread3.getName() + " берет палочку");
-            System.out.println(thread3.getName() + " бежит к " + thread2.getName());
-            Thread.sleep(5000);
-
-            thread2.run();
-            thread2.join();
-            System.out.println(thread2.getName() + " берет палочку");
-            System.out.println(thread2.getName() + " бежит к " + thread1.getName());
-            Thread.sleep(5000);
-
-            thread1.run();
-            thread1.join();
-            System.out.println(thread1.getName() + " берет палочку");
-
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
     }
 
 }
+
+
 
 
 
