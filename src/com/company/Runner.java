@@ -2,6 +2,11 @@ package com.company;
 
 public class Runner extends Thread {
 
+    int number;
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
 
     public Runner(String name) {
         this.setName(name);
@@ -10,19 +15,36 @@ public class Runner extends Thread {
     public void run() {
 
         try {
-
-            for (int i = 2; i < 6; i++) {
-
-                System.out.println(getName() + (--i) + " берет палочку ");
-                System.out.println(getName() + i + " бежит к " + getName() + (++i));
-
-                if (i == 5) {
-                    System.out.println(getName() + i + " бежит к финалу");
-                }
+            System.out.println(getName() + " берет палочку ");
+            if (number -1 == 5) {
+                System.out.println(getName() + " бежит к финишу");
                 sleep(5000);
 
+            } else if (number == 1) {
+                System.out.println(getName() + " бежит к runner" + number);
+                sleep(5000);
+                System.out.println("runner1 берет палочку ");
+            } else {
+                System.out.println(getName() + " бежит к runner" + number);
+                sleep(5000);
             }
-            for (int j = 4; j > 0; j--) {
+        } catch (Exception e) {
+
+        }
+    }
+
+
+//            sleep(5000);
+
+//                System.out.println(getName() + " бежит к финалу");
+
+
+
+
+
+
+
+            /*for (int j = 4; j > 0; j--) {
 
                 System.out.println(getName() + (++j) + " берет палочку ");
                 System.out.println(getName() + j + " бежит к " + getName() + (--j));
@@ -32,15 +54,13 @@ public class Runner extends Thread {
                 }
                 sleep(5000);
 
-            }
+            }*/
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
 
 }
+
+
+
 
 
 
