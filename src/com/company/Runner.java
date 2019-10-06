@@ -34,29 +34,6 @@ public class Runner extends Thread {
     }
 
 
-//            sleep(5000);
-
-//                System.out.println(getName() + " бежит к финалу");
-
-
-
-
-
-
-
-            /*for (int j = 4; j > 0; j--) {
-
-                System.out.println(getName() + (++j) + " берет палочку ");
-                System.out.println(getName() + j + " бежит к " + getName() + (--j));
-
-                if (j == 1) {
-                    System.out.println(getName() + j + " берет палочку ");
-                }
-                sleep(5000);
-
-            }*/
-
-
 }
 
 
